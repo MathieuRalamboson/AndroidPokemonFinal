@@ -40,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            image = v.findViewById(R.id.icon);
+            image = v.findViewById(R.id.image);
         }
     }
 
@@ -71,14 +71,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
         final String name = currentPokemon.getName();
         holder.txtHeader.setText(name);
 
-        /*
+        Log.d("Check", "Glide Begin");
         Glide.with(context)
-                .load("http://ray0.be/pokeapi/pokemon-img/en/" + currentPokemon.getName())
+                .load("http://ray0.be/pokeapi/pokemon-img/en/"+currentPokemon.getName())
                 .centerCrop()
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.image);
-        */
+
         //Event
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     tools:context="com.SecondActivity">
+
+
     <LinearLayout
         android:id="@+id/square"
         android:orientation="vertical"

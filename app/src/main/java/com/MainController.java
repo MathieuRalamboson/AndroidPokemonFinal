@@ -49,7 +49,6 @@ public class MainController {
 
                 Log.d("Check", "Api Respond");
                 RestPokemonResponse restPokemonResponse = response.body();
-                //List<Pokemon> listPokemon = restPokemonResponse.getResults();
                 ArrayList<Pokemon> listPokemon = restPokemonResponse.getResults();
                 activity.showList(listPokemon);
             }
