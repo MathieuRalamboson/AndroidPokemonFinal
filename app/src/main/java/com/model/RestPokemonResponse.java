@@ -1,13 +1,23 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestPokemonResponse {
 
+    //private List<Pokemon> results;
+    private ArrayList<Pokemon> results;
     private int count;
     private String next;
     private String previous;
-    private List<Pokemon> results;
+
+    public ArrayList<Pokemon> getResults() {
+        return results;
+    }
+
+    public void setResults(ArrayList<Pokemon> results) {
+        this.results = results;
+    }
 
     public int getCount() {
         return count;
@@ -31,13 +41,5 @@ public class RestPokemonResponse {
 
     public void setPrevious(String previous) {
         this.previous = previous;
-    }
-
-    public List<Pokemon> getResults() {
-        return results;
-    }
-
-    public void setResults(List<Pokemon> results) {
-        this.results = results;
     }
 }

@@ -8,6 +8,7 @@ import com.model.RestPokemonResponse;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,11 +31,6 @@ public class MainController {
 
     public void onStart(){
 
-        //Pour ceux qui veulent aller plus loin
-        //Singleton
-        //Pour ceux qui veulent aller encore plus loin
-        // Injection de dépendances
-
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -45,16 +41,16 @@ public class MainController {
                 .build();
 
         RestPokemonApi restPokemonApi = retrofit.create(RestPokemonApi.class);
-
         Call<RestPokemonResponse> call = restPokemonApi.getListPokemon();
         call.enqueue(new Callback<RestPokemonResponse>() {
             @Override
             public void onResponse(Call<RestPokemonResponse> call,
-                    Response<RestPokemonResponse> response) {
+                                   Response<RestPokemonResponse> response) {
 
                 Log.d("Check", "Api Respond");
                 RestPokemonResponse restPokemonResponse = response.body();
-                List<Pokemon> listPokemon = restPokemonResponse.getResults();
+                //List<Pokemon> listPokemon = restPokemonResponse.getResults();
+                ArrayList<Pokemon> listPokemon = restPokemonResponse.getResults();
                 activity.showList(listPokemon);
             }
 

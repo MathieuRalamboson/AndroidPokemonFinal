@@ -29,7 +29,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
     public class CelluleJava extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView txtHeader;
-        public TextView txtFooter;
         public ImageView image;
         public View layout;
 
@@ -38,21 +37,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
             image = v.findViewById(R.id.icon);
         }
     }
-
-    public void add(int position, Pokemon item) {
-        listValues.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        listValues.remove(position);
-        notifyItemRemoved(position);
-    }
-
 
     // Provide a suitable constructor (depends on the kind of dataset)
 
@@ -63,8 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public CelluleJava onCreateViewHolder(ViewGroup parent,
-            int viewType) {
+    public CelluleJava onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
@@ -80,9 +66,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
         // - replace the contents of the view with that element
         final Pokemon currentPokemon = listValues.get(position);
         final String name = currentPokemon.getName();
-        final String url = currentPokemon.getUrl();
+        //final String url = currentPokemon.getUrl();
         holder.txtHeader.setText(name);
-        holder.txtFooter.setText("Footer: " + url);
+        //holder.txtFooter.setText("Footer: " + url);
 
         //Event
         holder.txtHeader.setOnClickListener(new OnClickListener() {
