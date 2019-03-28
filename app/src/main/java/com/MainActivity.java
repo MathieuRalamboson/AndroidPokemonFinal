@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -39,14 +40,15 @@ public class MainActivity extends Activity {
 
     }
 
-    public void showList(List<Pokemon> input){
-        recyclerView.setHasFixedSize(true);
+    public void showList(ArrayList<Pokemon> input){
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
         // define an adapter
         mAdapter = new MyAdapter(input,this);
         recyclerView.setAdapter(mAdapter);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
     }
 
 }

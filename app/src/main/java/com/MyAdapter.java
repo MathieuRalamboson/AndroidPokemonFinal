@@ -3,6 +3,7 @@ package com;
 import com.github.vincebrees.esiea32.R;
 import com.model.Pokemon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -23,7 +24,7 @@ import org.w3c.dom.Text;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
 
     private static final String TAG = "RecyclerViewAdapter";
-    private List<Pokemon> listValues;
+    private ArrayList<Pokemon> listValues;
     private Context context;
 
     public class CelluleJava extends RecyclerView.ViewHolder {
@@ -43,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
 
     // Provide a suitable constructor (depends on the kind of dataset)
 
-    public MyAdapter(List<Pokemon> listValues, Context context) {
+    public MyAdapter(ArrayList<Pokemon> listValues, Context context) {
         this.listValues = listValues;
         this.context = context;
     }
@@ -66,9 +67,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
         // - replace the contents of the view with that element
         final Pokemon currentPokemon = listValues.get(position);
         final String name = currentPokemon.getName();
-        //final String url = currentPokemon.getUrl();
         holder.txtHeader.setText(name);
-        //holder.txtFooter.setText("Footer: " + url);
 
         //Event
         holder.txtHeader.setOnClickListener(new OnClickListener() {
