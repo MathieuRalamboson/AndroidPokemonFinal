@@ -1,5 +1,7 @@
 package com;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.vincebrees.esiea32.R;
 import com.model.Pokemon;
 
@@ -69,6 +71,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CelluleJava> {
         final String name = currentPokemon.getName();
         holder.txtHeader.setText(name);
 
+        /*
+        Glide.with(context)
+                .load("http://ray0.be/pokeapi/pokemon-img/en/" + currentPokemon.getName())
+                .centerCrop()
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.image);
+        */
         //Event
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
